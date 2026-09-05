@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1733" />
+    <title>Google Business Profile Audit</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="brand-mark">G</div>
+        <div>
+          <p class="eyebrow">PROPOSAL TOOL</p>
+          <h1>Google Business Profile Audit</h1>
+          <p class="header-copy">Complete the checklist and create a clear client proposal.</p>
+        </div>
+      </header>
+
+      <section class="panel business-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow accent">STEP 1</p>
+            <h2>Business Details</h2>
+            <p class="section-copy">Add the details that should appear in the client report.</p>
+          </div>
+          <span class="step-badge">Business Information</span>
+        </div>
+        <form id="businessForm" class="business-form">
+          <label>Business Name<input id="businessName" required placeholder="e.g. BrightSpark Plumbing" /></label>
+          <label>Business Category<input id="businessCategory" placeholder="e.g. Plumber" /></label>
+          <label>Location / Service Area<input id="businessLocation" placeholder="e.g. Birmingham, UK" /></label>
+          <label>Phone Number<input id="businessPhone" placeholder="e.g. +44 000 000 0000" /></label>
+          <label>Website<input id="businessWebsite" type="url" placeholder="https://example.com" /></label>
+        </form>
+      </section>
+
+      <section class="panel audit-panel">
+        <div class="section-heading audit-heading">
+          <div>
+            <p class="eyebrow accent">STEP 2</p>
+            <h2>Audit Checklist</h2>
+            <p class="section-copy">Choose Yes or No for every item. Add evidence so the client understands the finding.</p>
+          </div>
+          <div class="live-summary"><strong id="liveScore">0%</strong><span id="liveCount">0/37 Complete</span></div>
+        </div>
+        <div id="auditList"></div>
+      </section>
+
+      <div class="action-bar">
+        <button class="button button-secondary" id="clearForm" type="button">Clear</button>
+        <button class="button button-primary" id="previewReport" type="button">Preview Proposal</button>
+      </div>
+    </main>
+
+    <section class="report-view hidden" id="reportView">
+      <div class="report-actions no-print">
+        <button class="button button-secondary" id="backToAudit" type="button">Back To Audit</button>
+        <button class="button button-primary" id="printReport" type="button">Export Client PDF</button>
+      </div>
+      <div id="reportRoot"></div>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
