@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#0b1020" />
     <title>GMB Audit Hub</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./report-redesign.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -60,6 +61,12 @@
             <div class="notice hidden" id="searchNotice"></div>
           </section>
 
+          <section class="import-card">
+            <div class="import-copy"><span class="eyebrow accent">FREE IMPORT MODE</span><h2>Paste Google Maps links</h2><p>Use one link per line. The tool will try to resolve each public listing and create a separate prospect record.</p></div>
+            <form id="mapsImportForm" class="import-form"><textarea id="mapsLinksInput" rows="4" placeholder="https://maps.google.com/...&#10;https://maps.app.goo.gl/...&#10;One Google Maps link per line"></textarea><div class="import-actions"><span>Unverified or private fields will be marked for manual review.</span><button class="button button-secondary" type="submit">Import links</button></div></form>
+            <div class="notice hidden" id="importNotice"></div>
+          </section>
+
           <section class="stats-grid" aria-label="Prospect summary">
             <article class="stat-card"><span>Total prospects</span><strong id="totalStat">0</strong><small>Businesses saved</small></article>
             <article class="stat-card"><span>Audited</span><strong id="auditedStat">0</strong><small>With completed checks</small></article>
@@ -82,13 +89,18 @@
 
         <section class="view" id="checklistView">
           <section class="content-card">
-            <div class="section-heading"><div><span class="eyebrow">SOURCE CHECKLIST</span><h2>GMB audit factors</h2><p class="section-description">Imported from your “gmb audit” sheet. These checks are applied separately to every prospect.</p></div><span class="count-badge" id="factorCount">37 checks</span></div>
+            <div class="section-heading"><div><span class="eyebrow">CLIENT-FRIENDLY CHECKLIST</span><h2>GMB audit factors</h2><p class="section-description">Each factor now explains what is being checked, how it can affect the business and what action you can recommend to the client. The same explanations appear in the exported proposal.</p></div><span class="count-badge" id="factorCount">37 client-friendly checks</span></div>
             <div class="checklist-grid" id="checklistReference"></div>
           </section>
         </section>
 
         <section class="view" id="settingsView">
           <section class="content-card settings-card">
+            <span class="eyebrow accent">PROPOSAL PROFILE</span>
+            <h2>Your proposal details</h2>
+            <p class="section-description">These details appear on the PDF proposal cover and contact section. They stay saved in this browser.</p>
+            <div class="settings-form"><label>Agency name<input id="agencyName" placeholder="e.g. Saif SEO Agency" /></label><label>Your name<input id="contactName" placeholder="e.g. Saif ur Rehman" /></label><label>Email<input id="proposalEmail" type="email" placeholder="you@example.com" /></label><label>Phone / WhatsApp<input id="proposalPhone" placeholder="+92..." /></label><label class="settings-full">Website<input id="proposalWebsite" type="url" placeholder="https://yourwebsite.com" /></label><button class="button button-primary" id="saveProposalSettings" type="button">Save proposal details</button></div>
+            <hr class="settings-divider" />
             <span class="eyebrow">CONNECTIONS</span>
             <h2>Connect live search when ready</h2>
             <p class="section-description">The first build stores prospects locally in this browser. To fetch public Google Maps/Business Profile data, the Netlify version will use a server-side Google Places API key.</p>
@@ -108,5 +120,6 @@
     </div>
     <div class="toast" id="toast" role="status"></div>
     <script src="./app.js"></script>
+    <script src="./report-redesign.js"></script>
   </body>
 </html>
